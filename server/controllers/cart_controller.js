@@ -27,7 +27,7 @@ module.exports = {
     },
     checkout: (req, res, next) => {
         const {user} = req.session;
-        user.cart = [],
+        user.cart = [];
         user.total = 0;
 
         res.status(200).send(req.session.user);

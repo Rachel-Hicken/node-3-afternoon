@@ -1,4 +1,4 @@
-const swag = require('../models/users');
+const user = require('../models/users');
 
 let id = 1;
 
@@ -27,10 +27,11 @@ module.exports ={
         res.status(200).send(session.user);
 
     },
-    signout: (req, res, next)=>{
-        req.session.destroy();
-        res.status(200).send(req.session);
-    },
+    signout: ( req, res, next ) => {
+        const { session } = req;
+        session.destroy();
+        res.status(200).send( req.session );
+      },
     getUser: (req, res, next)=>{
         res.status(200).send(req.session.user);
     }
